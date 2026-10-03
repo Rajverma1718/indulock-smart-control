@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "author": "Ram verma",
+  "editor": "wokwi",
+  "parts": [
+    {"type":"board-esp32-devkit-c-v4","id":"esp","top":20,"left":0,"attrs":{}},
+    {"type":"wokwi-mfrc522","id":"rfid","top":-10,"left":350,"attrs":{}},
+    {"type":"wokwi-keypad4x4","id":"keypad","top":180,"left":320,"attrs":{}},
+    {"type":"wokwi-lcd1602","id":"lcd","top":-20,"left":620,"attrs":{"pins":"i2c"}},
+    {"type":"wokwi-servo","id":"lock","top":190,"left":650,"attrs":{}},
+    {"type":"wokwi-ds1307","id":"rtc","top":170,"left":820,"attrs":{}},
+    {"type":"wokwi-buzzer","id":"buzzer","top":300,"left":820,"attrs":{}},
+    {"type":"wokwi-led","id":"green","top":300,"left":520,"attrs":{"color":"green","label":"ACCESS"}},
+    {"type":"wokwi-led","id":"red","top":360,"left":520,"attrs":{"color":"red","label":"DENIED"}},
+    {"type":"wokwi-pushbutton","id":"emergency","top":300,"left":320,"attrs":{"color":"red","label":"EMERGENCY"}}
+  ],
+  "connections": [
+    ["rfid:SDA","esp:5","green",[]],["rfid:SCK","esp:18","green",[]],["rfid:MOSI","esp:23","green",[]],["rfid:MISO","esp:19","green",[]],["rfid:RST","esp:27","green",[]],["rfid:3.3V","esp:3V3","red",[]],["rfid:GND","esp:GND.1","black",[]],
+    ["lcd:SDA","esp:21","green",[]],["lcd:SCL","esp:22","green",[]],["lcd:VCC","esp:5V","red",[]],["lcd:GND","esp:GND.1","black",[]],
+    ["rtc:SDA","esp:21","green",[]],["rtc:SCL","esp:22","green",[]],["rtc:VCC","esp:3V3","red",[]],["rtc:GND","esp:GND.1","black",[]],
+    ["lock:PWM","esp:4","green",[]],["lock:V+","esp:5V","red",[]],["lock:GND","esp:GND.1","black",[]],
+    ["buzzer:1","esp:12","green",[]],["buzzer:2","esp:GND.1","black",[]],["green:A","esp:2","green",[]],["green:C","esp:GND.1","black",[]],["red:A","esp:15","green",[]],["red:C","esp:GND.1","black",[]],["emergency:1.l","esp:34","green",[]],["emergency:2.l","esp:GND.1","black",[]]
+  ],
+  "dependencies": {}
+}
